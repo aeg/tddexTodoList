@@ -1,5 +1,8 @@
 package com.example.todo
 
+import com.google.gson.Gson
+import com.google.gson.stream.JsonReader
+
 /**
  * User: aeg
  * Date: 2013/07/28
@@ -21,7 +24,14 @@ class TodoListManager {
     writer.close()
   }
 
-  TodoList getReadList() {
-    return null;
+  TodoList ReadList() {
+
+    TodoList todolist = new TodoList()
+
+    JsonReader reader = new JsonReader(new FileReader(file))
+    Gson gson = new Gson()
+    todolist = gson.fromJson(reader, TodoList.class)
+
+    return todolist
   }
 }

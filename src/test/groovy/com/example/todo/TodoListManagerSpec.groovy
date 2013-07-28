@@ -45,7 +45,8 @@ class TodoListManagerSpec extends Specification {
 
     TodoListManager manager = new TodoListManager("testtodo.json")
 
-    TodoList resultList = manager.readList()
+    TodoList resultList = manager.ReadList()
+
 
     then:
     resultList.firstTodo().id == 1
